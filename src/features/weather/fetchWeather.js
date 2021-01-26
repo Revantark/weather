@@ -1,12 +1,14 @@
+import { api_key } from "../../../open_weather_config";
 export default async function FetchWeatherAPI({currentPosition=undefined,city=""})  {
     const axios = require('axios');
     let response;
+    
     if(currentPosition){
-        const url = `http://api.openweathermap.org/data/2.5/weather?units=metric&lat=${currentPosition.coords.latitude.toFixed(6)}&lon=${currentPosition.coords.longitude.toFixed(6)}&appid=a85f19c3af8c68e64073207f44f6b461`
+        const url = `http://api.openweathermap.org/data/2.5/weather?units=metric&lat=${currentPosition.coords.latitude.toFixed(6)}&lon=${currentPosition.coords.longitude.toFixed(6)}&appid=${api_key}`
         response = await axios.get(url)
     }
     else{
-        const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=a85f19c3af8c68e64073207f44f6b461`
+        const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${api_key}`
         response = await axios.get(url)
 
     }

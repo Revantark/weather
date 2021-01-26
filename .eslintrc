@@ -2,5 +2,10 @@
     "parser": "babel-eslint",
     "extends": [
         "react-app"
+    ],
+    "overrides": [
+        {
+            "files":["*.css"]
+        }
     ]
 }

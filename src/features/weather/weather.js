@@ -1,18 +1,22 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchCurrentLocationWeather } from './weatherSlice'
+import { fetchCurrentLocationWeather,fetchWeatherByCity } from './weatherSlice'
 import './weather.css'
+import { useParams } from 'react-router-dom'
 import locationIcon from '../../icons/p.png'
 export default function Weather() {
     const dispatch = useDispatch();
-
+    const {name} = useParams()
     useEffect(() => {
-        if (navigator.geolocation) {
+        if(name){
+            dispatch(fetchWeatherByCity(name))
+        }
+        else if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((p) => {
                 dispatch(fetchCurrentLocationWeather(p))
             })
         }
-    }, [dispatch])
+    }, [dispatch,name])
 
     const cWeather = useSelector(state => state.weather);
     let svgPath = `${process.env.PUBLIC_URL}/assets/${cWeather.icon}.svg`

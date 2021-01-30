@@ -6,10 +6,10 @@ import { Route,Switch,BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
     <Router>
-    <div className="App">
+    <div className="App h-screen flex flex-col">
       
-      <Navbar />
-      <Switch>
+      <Navbar className="flex-initial"/>
+      <Switch >
         <Route
         exact
         path="/"

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchCurrentLocationWeather,fetchWeatherByCity } from './weatherSlice'
-import './weather.css'
+// import './weather.css'
 import { useParams } from 'react-router-dom'
 import locationIcon from '../../icons/p.png'
 export default function Weather() {
@@ -24,13 +24,17 @@ export default function Weather() {
 
 
     return (
-        <div className="temperature" >
-            <img className="w-icon" width="125px" height="125px" src={svgPath} alt="icon" />
-            <span className="temp" >{cWeather.temp}<sup>°</sup>  C</span>
-            <div className="loc">
-                <img className="w-5 h-5" src={locationIcon} alt="location-icon" />
+        <div className="h-screen flex flex-wrap content-center self-center" >
+            <div className="pb-32 grid grid-cols-2">
+            <img  width="125px" height="125px" src={svgPath} alt="icon" />
+            <div className="flex flex-col self-center justify-self-center">
+            <span className="text-4xl" >{cWeather.temp}<sup>°</sup>  C</span>
+            <div className="flex justify-items-auto content-center">
+                <img className="w-4 h-4 mt-1 mr-1" src={locationIcon} alt="location-icon" />
                 
                 <span className="location" >{cWeather.location}</span>
+            </div>
+            </div>
             </div>
         </div>
     )

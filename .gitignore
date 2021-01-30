@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 #apikey
-open_weather_config.js
+src/open_weather_config.js
 # testing
 /coverage
 

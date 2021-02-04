@@ -9,6 +9,4 @@ body{
 .btn{
     @apply rounded-full uppercase font-bold px-2 py-2 focus:outline-none ;
 }
-.btn-p{
-    @apply rounded-full uppercase text-white font-bold px-2 py-1 focus:outline-none focus:ring-1 hover:bg-primaryDark bg-primary;
-}
+
